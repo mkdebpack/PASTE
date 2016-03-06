@@ -2,13 +2,13 @@ var express = require('express');
 var view = require('./src/view');
 var storage = require('./src/storage');
 var md5 = require('md5');
-var LRU = require("lru-cache")
+var LRU = require("lru-cache");
 var bodyParser = require('body-parser');
+var jade = require('jade');
 
 var app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
 var MODELS = {};
 var CACHE = new LRU({
   max: 50,
@@ -25,7 +25,8 @@ var getTimeStamp = () => {
   timestamp = Math.floor(timestamp / 10000000);
   return (timestamp).toString(16)
 }
-
+app.set('views', __dirname + '/views')
+app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/resources/public'));
 
 var log = function () {
@@ -37,6 +38,12 @@ var log = function () {
   message.unshift(timestamp);
   console.log.apply(console, message);
 } 
+
+app.get('/', function (req, res) {
+  res.render('index',
+  { title : 'PASTE' }
+  )
+})
 
 app.get('/new', function (req, res) {
   log(req.ip, "opens /new");
