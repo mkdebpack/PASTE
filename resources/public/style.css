@@ -22,7 +22,7 @@ html, body {
 	overflow:hidden;
 	height: 100vh;
 			/* Location of the image */
-  background-image: url('https://images.unsplash.com/photo-1430877027050-6184f6f6b80e?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=d1675a3d9eff5209e8eae1a32a3bf693');
+  background-image: url('https://images.unsplash.com/photo-1444424050109-31f057e1e858?crop=entropy&fit=crop&fm=jpg&h=650&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1375');
   
   /* Background image is centered vertically and horizontally at all times */
   background-position: center center;
