@@ -26,7 +26,7 @@ module.exports.renderStats = note => renderPage(deriveTitle(note.text),
   "");
 
 module.exports.renderNote = note => renderPage(deriveTitle(note.text), 
-  marked(note.text),
+  note.text,
   footerTemplate.replace(/%LINK%/g, note.id));
 
 module.exports.newNotePage = session => editTemplate
