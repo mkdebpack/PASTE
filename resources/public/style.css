@@ -274,8 +274,9 @@ td {
 #editContainer {
 	display: flex;
 	height: 100%;
+	width: 100%;
 }
-
+/*
 #previewPane {
 	flex: 1 0 50%;
 	display: flex;
@@ -284,7 +285,7 @@ td {
 	margin: 0 !important;
 	border-left: 1px solid #444;
 }
-
+*/
 #previewPane article {
 	flex: 1 0;
 	padding: 2em;

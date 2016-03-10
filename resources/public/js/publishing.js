@@ -9,7 +9,7 @@ var $note, $action, $preview, $plain_password,
 var backendTimer;
 
 function md2html(input) {
-  return marked(input);
+  return input;
 }
 
 function saveDraft() {
