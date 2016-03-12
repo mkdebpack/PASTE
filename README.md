@@ -14,3 +14,8 @@ To get started with this code:
       * sqlite3
   3. Change server.js to listen on the correct IP and PORT
   4. Run <code>node server.js</code>
+
+# SECURITY NOTE:
+
+This is NOT recommended for production, and is intended for LEARNING PURPOSES only.
+It is very vulnerable to XSS, so use at your own risk!  

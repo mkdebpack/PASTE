@@ -1,6 +1,6 @@
 {
   "name": "Paste",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Free Markdown bin: Paste",
   "main": "server.js",
   "scripts": {
@@ -28,7 +28,12 @@
     "lru-cache": "^2.6.5",
     "marked": "^0.3.5",
     "md5": "^2.0.0",
-    "jade": "^1.0.4",
+    "kure": "latest",
+    "kcss": "latest",
+    "slogit": "latest",
+    "elto": "latest",
+    "wafflez": "latest",
+    "ksa": "latest",
     "sequelize": "^3.8.0",
     "sqlite3": "^3.1.0"
   },

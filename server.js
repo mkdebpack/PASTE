@@ -4,7 +4,10 @@ var storage = require('./src/storage');
 var md5 = require('md5');
 var LRU = require("lru-cache");
 var bodyParser = require('body-parser');
-var jade = require('jade');
+var kure = require('kure');
+var kcss = require('kcss');
+var slogit = require('slogit').slogit;
+var wafflez = require('wafflez');
 
 var app = express();
 
@@ -26,7 +29,7 @@ var getTimeStamp = () => {
   return (timestamp).toString(16)
 }
 app.set('views', __dirname + '/views')
-app.set('view engine', 'jade');
+app.set('view engine', 'kure');
 app.use(express.static(__dirname + '/resources/public'));
 
 var log = function () {
@@ -101,9 +104,9 @@ app.get(/\/([a-z0-9]+\/edit)/, function (req, res) {
     : notFound(res)));
 });
 
-app.get(/\/([a-z0-9]+\/export)/, function (req, res) {
-  var link = req.params["0"].replace("/export", "");
-  log(req.ip, "calls /export on", link);
+app.get(/\/([a-z0-9]+\/raw)/, function (req, res) {
+  var link = req.params["0"].replace("/raw", "");
+  log(req.ip, "calls /raw on", link);
   res.set({ 'Content-Type': 'text/plain', 'Charset': 'utf-8' });
   storage.getNote(link).then(note => note
     ? res.send(note.text)
@@ -146,10 +149,10 @@ app.get(/\/([a-z0-9]+)/, function (req, res) {
 
 var sendResponse = (res, code, message) => {
   log("sending response", code, message);
-  res.status(code).send(view.renderPage(message, "<h1>" + message + "</h1>", ""));
+  res.status(code).send(view.renderPage(message, "<p class='nope'>" + message + "</p>", ""));
 }
 
-var notFound = res => sendResponse(res, 404, "Not found");
+var notFound = res => sendResponse(res, 404, "404");
 
 var server = app.listen(process.env.PORT, process.env.IP);
 
@@ -158,3 +161,5 @@ setInterval(() => {
   log("saving stats for", keys.length, "models...");
   keys.forEach(id => MODELS[id].save())
 }, 60 * 5 * 1000);
+
+slogit(wafflez('PASTE', {padding: 1, margin: 1, borderStyle: 'double', borderColor: 'cyan'}));
