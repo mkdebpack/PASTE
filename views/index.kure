@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title PASTE
+    meta(charset='UTF-8')
+    meta(content='width=device-width, initial-scale=1.0', name='viewport')
+    link(href='/style.css', rel='stylesheet', type='text/css')
+    link(href='/feather.css', rel='stylesheet', type='text/css')
+    link(href='/hero.css', rel='stylesheet', type='text/css')
+  body
+    #hero
+      .wrapper
+        h1.gamma.lato.thin.uppercase.ls-xlarge.smack
+          | I can
+          br
+          span.open-sans.tera.ls-xlarge.bold.smack PASTE
+          br
+          span.epsilon.ls-medium.lato.smack Simple Bin for Anything
+          br
+          a.landing-button(href='/new', style='color: white') New Paste
+      
