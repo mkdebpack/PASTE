@@ -10,7 +10,7 @@ html
   body
     #hero
       .wrapper
-        h1.gamma.lato.thin.uppercase.ls-xlarge.smack
+        h1.gamma.lato.thin.uppercase.ls-xlarge.fadeIn
           | I can
           br
           span.open-sans.tera.ls-xlarge.bold.smack PASTE
