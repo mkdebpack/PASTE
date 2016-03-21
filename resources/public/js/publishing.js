@@ -1,3 +1,4 @@
+//var escape = require('escape-html');
 var $ = function(id) {
   return document.getElementById(id);
 }
@@ -9,7 +10,7 @@ var $note, $action, $preview, $plain_password,
 var backendTimer;
 
 function md2html(input) {
-  return input;
+  return escape(input);
 }
 
 function saveDraft() {

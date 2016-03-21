@@ -1,4 +1,5 @@
 var marked = require("marked");
+var escape = require("escape-html");
 var fs = require("fs");
 
 var pageTemplate = fs.readFileSync("resources/template.html", "utf-8");
@@ -26,7 +27,7 @@ module.exports.renderStats = note => renderPage(deriveTitle(note.text),
   "");
 
 module.exports.renderNote = note => renderPage(deriveTitle(note.text), 
-  note.text,
+  escape(note.text),
   footerTemplate.replace(/%LINK%/g, note.id));
 
 module.exports.newNotePage = session => editTemplate

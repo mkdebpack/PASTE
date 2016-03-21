@@ -24,18 +24,19 @@
   "homepage": "https://github.com/KingPixil/PASTE",
   "dependencies": {
     "body-parser": "^1.14.1",
+    "elto": "latest",
+    "escape-html": "^1.0.3",
     "express": "^4.13.3",
+    "kcss": "latest",
+    "ksa": "latest",
+    "kure": "latest",
     "lru-cache": "^2.6.5",
     "marked": "^0.3.5",
     "md5": "^2.0.0",
-    "kure": "latest",
-    "kcss": "latest",
-    "slogit": "latest",
-    "elto": "latest",
-    "wafflez": "latest",
-    "ksa": "latest",
     "sequelize": "^3.8.0",
-    "sqlite3": "^3.1.0"
+    "slogit": "latest",
+    "sqlite3": "^3.1.0",
+    "wafflez": "latest"
   },
   "devDependencies": {
     "nodemon": "^1.7.3"
