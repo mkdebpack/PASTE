@@ -14,10 +14,10 @@ var renderPage = (title, content, footer) => pageTemplate
   .replace("%TITLE%", title)
   .replace("%CONTENT%", content)
   .replace("%FOOTER%", footer);
-  
+
 module.exports.renderPage = renderPage;
 
-module.exports.renderStats = note => renderPage(deriveTitle(note.text), 
+module.exports.renderStats = note => renderPage(deriveTitle(note.text),
   `<h2>Statistics</h2>
   <table>
     <tr><td>Published</td><td>${note.published}</td></tr>
@@ -25,10 +25,9 @@ module.exports.renderStats = note => renderPage(deriveTitle(note.text),
     <tr><td>Views</td><td>${note.views}</td></tr>
   </table>`,
   "");
-
-module.exports.renderNote = note => renderPage(deriveTitle(note.text), 
-  escape(note.text),
-  footerTemplate.replace(/%LINK%/g, note.id));
+    module.exports.renderNote = note => renderPage(deriveTitle(note.text),
+      marked(note.text),
+      footerTemplate.replace(/%LINK%/g, note.id));
 
 module.exports.newNotePage = session => editTemplate
   .replace("%ACTION%", "POST")

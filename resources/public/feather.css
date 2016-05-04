@@ -355,7 +355,7 @@ a:hover {
 }
 
 
-/* Checkboxes */
+/* Checkboxes
  input[type="checkbox"] {
    position: absolute;
    left: -99999em;
@@ -421,7 +421,7 @@ a:hover {
    border-width: 0 0.2rem 0.1rem 0;
    -webkit-transform: rotate(50deg) skew(20deg, 0) scale(0.5, 1.5) translate3d(0.25em, -0.25em, 0);
            transform: rotate(50deg) skew(20deg, 0) scale(0.5, 1.5) translate3d(0.25em, -0.25em, 0);
- }
+ } */
 /*------------------------------------------------------------
   Lists
 ------------------------------------------------------------*/

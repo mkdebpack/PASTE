@@ -160,6 +160,7 @@ article {
 	margin-bottom: 5em;
 	margin-right: auto;
 	margin-left: auto;
+  color: white;
 }
 
 article img {
@@ -193,6 +194,16 @@ blockquote {
 
 .bottom-space {
 	margin-bottom: 7em;
+}
+
+label {
+  color: white;
+}
+
+input[type="checkbox"] {
+  background: transparent;
+  border: 2px solid white;
+  transition: all 0.5 ease;
 }
 
 code, pre {
