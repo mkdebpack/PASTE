@@ -148,10 +148,10 @@ app.get(/\/([a-z0-9]+)/, function (req, res) {
 
 var sendResponse = (res, code, message) => {
   log("sending response", code, message);
-  res.status(code).send(view.renderPage(message, "<p class='nope'>" + message + "</p>", ""));
+  res.status(code).send(view.renderPage(message, "<p class='nope centered'>" + message + "</p>", ""));
 }
 
-var notFound = res => sendResponse(res, 404, "404");
+var notFound = res => sendResponse(res, 404, `404<br><span style='font-size: 3vh'>Not Found</span>`);
 
 var server = app.listen(3000);
 
