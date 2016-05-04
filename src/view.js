@@ -1,6 +1,7 @@
 var marked = require("marked");
 var escape = require("escape-html");
 var fs = require("fs");
+var checked = false;
 
 var pageTemplate = fs.readFileSync("resources/template.html", "utf-8");
 var footerTemplate = fs.readFileSync("resources/footer.html", "utf-8");
@@ -25,9 +26,15 @@ module.exports.renderStats = note => renderPage(deriveTitle(note.text),
     <tr><td>Views</td><td>${note.views}</td></tr>
   </table>`,
   "");
+  if(checked) {
     module.exports.renderNote = note => renderPage(deriveTitle(note.text),
       marked(note.text),
       footerTemplate.replace(/%LINK%/g, note.id));
+  } else {
+    module.exports.renderNote = note => renderPage(deriveTitle(note.text),
+      escape(note.text),
+      footerTemplate.replace(/%LINK%/g, note.id));
+  }
 
 module.exports.newNotePage = session => editTemplate
   .replace("%ACTION%", "POST")

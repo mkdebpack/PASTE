@@ -1,6 +1,7 @@
 var $ = function(id) {
   return document.getElementById(id);
 }
+var checked = false;
 var iosDetected = navigator.userAgent.match("(iPad|iPod|iPhone)");
 var timer = null;
 var timerDelay = iosDetected ? 800 : 400;
@@ -11,7 +12,9 @@ var backendTimer;
 function md2html(input) {
   if(document.getElementById("markCheck").checked) {
     return marked(input);
+    checked = true;
   } else {
+    checked = false;
     return escape(input);
   }
 }
