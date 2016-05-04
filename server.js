@@ -153,7 +153,7 @@ var sendResponse = (res, code, message) => {
 
 var notFound = res => sendResponse(res, 404, `404<br><span style='font-size: 3vh'>Not Found</span>`);
 
-var server = app.listen(process.env.IP, process.env.PORT);
+var server = app.listen(process.env.PORT || 3000);
 
 setInterval(() => {
   var keys = Object.keys(MODELS);
