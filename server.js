@@ -4,8 +4,7 @@ var storage = require('./src/storage');
 var md5 = require('md5');
 var LRU = require("lru-cache");
 var bodyParser = require('body-parser');
-var kure = require('kure');
-var kcss = require('kcss');
+var jade = require('jade');
 var slogit = require('slogit').slogit;
 var wafflez = require('wafflez');
 
@@ -29,18 +28,18 @@ var getTimeStamp = () => {
   return (timestamp).toString(16)
 }
 app.set('views', __dirname + '/views')
-app.set('view engine', 'kure');
+app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/resources/public'));
 
 var log = function () {
   var date = new Date();
-  var timestamp = date.getDate() + "/" + date.getMonth() + " " + date.getHours() + ":" + 
+  var timestamp = date.getDate() + "/" + date.getMonth() + " " + date.getHours() + ":" +
     date.getMinutes() + ":" + date.getSeconds() + "." + date.getMilliseconds();
   var message = Array.prototype.slice.call(arguments);
   message.unshift("--");
   message.unshift(timestamp);
   console.log.apply(console, message);
-} 
+}
 
 app.get('/', function (req, res) {
   res.render('index',
@@ -71,7 +70,7 @@ app.post('/note', function (req, res) {
     storage.addNote(note, password).then(goToNote);
   else {
     CACHE.del(id);
-    storage.updateNote(id, password, note).then(goToNote, 
+    storage.updateNote(id, password, note).then(goToNote,
       error => sendResponse(res, 403, error.message));
   }
 });
@@ -154,7 +153,7 @@ var sendResponse = (res, code, message) => {
 
 var notFound = res => sendResponse(res, 404, "404");
 
-var server = app.listen(process.env.PORT, process.env.IP);
+var server = app.listen(3000);
 
 setInterval(() => {
   var keys = Object.keys(MODELS);

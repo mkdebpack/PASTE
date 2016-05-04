@@ -24,12 +24,9 @@
   "homepage": "https://github.com/KingPixil/PASTE",
   "dependencies": {
     "body-parser": "^1.14.1",
-    "elto": "latest",
     "escape-html": "^1.0.3",
     "express": "^4.13.3",
-    "kcss": "latest",
-    "ksa": "latest",
-    "kure": "latest",
+    "jade": "latest",
     "lru-cache": "^2.6.5",
     "marked": "^0.3.5",
     "md5": "^2.0.0",
