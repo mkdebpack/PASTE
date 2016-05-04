@@ -338,8 +338,8 @@ fieldset {
 	padding-right: 1em;
 }
 
-#tableau {
-	font-weight: lighter;
+#info {
+  color: white;
 	float: right;
 }
 

@@ -1,12 +1,13 @@
 var $ = function(id) {
   return document.getElementById(id);
 }
+
 var checked = false;
 var iosDetected = navigator.userAgent.match("(iPad|iPod|iPhone)");
 var timer = null;
 var timerDelay = iosDetected ? 800 : 400;
-var $note, $action, $preview, $plain_password,
-  updatePreview, $tableau;
+var $note, $action, $preview, $plain_password, $info
+  updatePreview;
 var backendTimer;
 
 function md2html(input) {
@@ -22,7 +23,7 @@ function md2html(input) {
 function saveDraft() {
   if ($action == "UPDATE") return;
   console.log("Autosaving draft...");
-  //$tableau.innerHTML = "Draft autosaved."
+  $info.innerHTML = "Draft saved."
   localStorage.setItem("draft", $note.value);
 }
 
@@ -30,7 +31,7 @@ function onLoad() {
   $note = $("note");
   $action = $("action").value;
   $preview = $("draft");
-  $tableau = $("tableau");
+  $info = $("info");
   $plain_password = $("plain-password");
   updatePreview = function() {
     clearTimeout(timer);
@@ -63,5 +64,5 @@ function onLoad() {
   if (iosDetected) $note.className += " ui-border";
   else $note.focus();
   self.onbeforeunload = saveDraft;
-  setInterval(saveDraft, 60 * 1000)
+  setInterval(saveDraft, 1000)
 }
