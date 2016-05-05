@@ -58,7 +58,8 @@ app.post('/note', function (req, res) {
     note = body.note,
     password = body.password,
     action = body.action,
-    id = body.id;
+    id = body.id,
+    checked = body.checkStatus;
   log(req.ip, "calls /note to", action, id);
   var goToNote = note => res.redirect("/" + note.id);
   if (session.indexOf(getTimeStamp()) != 0)

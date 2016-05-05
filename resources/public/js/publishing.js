@@ -7,7 +7,6 @@ var iosDetected = navigator.userAgent.match("(iPad|iPod|iPhone)");
 var timer = null;
 var timerDelay = iosDetected ? 800 : 400;
 var $note, $action, $preview, $plain_password, $info
-  updatePreview;
 var backendTimer;
 
 function md2html(input) {
@@ -52,7 +51,7 @@ function onLoad() {
        updatePreview();
     }
   }
-  $note.onkeyup = updatePreview;
+  //$note.onkeyup = updatePreview;
   $("publish-button").onclick = function(e) {
     localStorage.removeItem("draft");
     self.onbeforeunload = null;;

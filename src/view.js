@@ -2,6 +2,8 @@ var marked = require("marked");
 var escape = require("escape-html");
 var fs = require("fs");
 var checked = false;
+var checkStatus = "checked"
+
 
 var pageTemplate = fs.readFileSync("resources/template.html", "utf-8");
 var footerTemplate = fs.readFileSync("resources/footer.html", "utf-8");
@@ -39,10 +41,12 @@ module.exports.renderStats = note => renderPage(deriveTitle(note.text),
 module.exports.newNotePage = session => editTemplate
   .replace("%ACTION%", "POST")
   .replace("%SESSION%", session)
+  .replace("%CHECKSTATUS%", checkStatus)
   .replace("%CONTENT%", "Loading...");
 
 module.exports.editNotePage = (session, note) => editTemplate
   .replace("%ACTION%", "UPDATE")
   .replace("%SESSION%", session)
   .replace("%ID%", note.id)
+  .replace("%CHECKSTATUS%", checkStatus)
   .replace("%CONTENT%", note.text);
