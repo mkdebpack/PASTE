@@ -22,7 +22,11 @@ function md2html(input) {
 function saveDraft() {
   if ($action == "UPDATE") return;
   console.log("Autosaving draft...");
+  if(localStorage.getItem("draft") !== $note.value) {
+    $info.innerHTML = "Saving Draft..."
+  } else {
   $info.innerHTML = "Draft saved."
+}
   localStorage.setItem("draft", $note.value);
 }
 
